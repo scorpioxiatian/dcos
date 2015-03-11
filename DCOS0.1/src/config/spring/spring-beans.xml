@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="userDao" class="com.mvc.dao.UserDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="pmDao" class="com.mvc.dao.PMDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="vmDao" class="com.mvc.dao.VMDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="appNutchDao" class="com.mvc.dao.AppNutchDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="appTomcatDao" class="com.mvc.dao.AppTomcatDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="batchAppDao" class="com.mvc.dao.BatchAppDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+
+
+
+	<bean id="userManagerBase" class="com.mvc.manager.UserManagerImpl">
+		<property name="userDao" ref="userDao"></property>
+		
+	</bean>
+	
+	<bean id="overviewManagerBase" class="com.mvc.manager.OverviewManager">
+		<property name="pmDao" ref="pmDao"></property>
+		<property name="vmDao" ref="vmDao"></property>
+		<property name="appNutchDao" ref="appNutchDao"></property>
+		<property name="appTomcatDao" ref="appTomcatDao"></property>
+		<property name="batchAppDao" ref="batchAppDao"></property>
+	</bean>
+	
+	<bean id="sourceManagerBase" class="com.mvc.manager.SourceManager">
+		<property name="pmDao" ref="pmDao"></property>
+		<property name="vmDao" ref="vmDao"></property>
+		<property name="appNutchDao" ref="appNutchDao"></property>
+		<property name="appTomcatDao" ref="appTomcatDao"></property>
+		<property name="batchAppDao" ref="batchAppDao"></property>
+	</bean>
+	
+	<bean id="monitorManagerBase" class="com.mvc.manager.MonitorManager">
+		<property name="appNutchDao" ref="appNutchDao"></property>
+		<property name="appTomcatDao" ref="appTomcatDao"></property>
+		<property name="vmDao" ref="vmDao"></property>
+	</bean>
+	
+	
+	<!-- 此处为代理 -->
+	<bean name="userManager" parent="transactionProxy">
+		<property name="target" ref="userManagerBase"></property>
+	</bean>	
+	
+	<bean name="overviewManager" parent="transactionProxy">
+		<property name="target" ref="overviewManagerBase"></property>
+	</bean>	
+	
+	<bean name="sourceManager" parent="transactionProxy">
+		<property name="target" ref="sourceManagerBase"></property>
+	</bean>		
+	
+	<bean name="monitorManager" parent="transactionProxy">
+		<property name="target" ref="monitorManagerBase"></property>
+	</bean>		
+	
+</beans>

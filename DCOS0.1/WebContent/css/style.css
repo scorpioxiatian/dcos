@@ -1,0 +1,28 @@
+@charset "utf-8";
+.all{width:100%;height:100%;}
+.ground{width:100%; height:100%; background-color:#1852EB；;}
+.wrapper{position: relative; margin: 0px 20px 0px 0px;}
+.scoprio{position:relative;padding:10px 0px 0px 0px;width:100%;height:100%;}
+.sidebar{min-height: 700px; position:relative; z-index: 10; left: 0px; top: 5px; width: 150px; height:100%; padding: 0px 20px 0px 10px; background-color:#B3E0E6;float:right;}
+.sidebar .nContainer{float: left;}
+.sidebar .navigation{width: 220px; margin: 10px 0px 20px; padding: 0px; list-style: none;  float: left; position: relative;}									
+.body{position: relative; margin: 10px 140px 0px 10px; padding: 0px 0px 0px 20px; background-color:#FFF;float:right;width:55%;}
+.body .table1{ position:absolute; float:right;  margin: 10px 0px 0px 0px;}
+.body .table2{ position: absolute;float: right;margin: 165px 0px 0px 0px;left: 20px;top: 17px;}
+.body .table3{ position:absolute;float:right;margin:325px 0px 0px 0px;}
+.body .table4{ position:absolute;float:right;margin:480px 0px 0px 0px;}
+.body .buttom1{width:100px; margin:140px 0px 0px 490px; position:absolute;}
+.body .buttom1 a{ text-height:auto; text-align:right}
+.body .buttom2{width:100px; margin:300px 0px 0px 490px; position:absolute;}
+.body .buttom2 a{ text-height:auto; text-align:right}
+.body .buttom3{width:100px; margin:460px 0px 0px 490px; position:absolute;}
+.body .buttom3 a{ text-height:auto; text-align:right}
+.body .buttom4{width:100px; margin:615px 0px 0px 490px; position:absolute;}
+.body .buttom4 a{ text-height:auto; text-align:right}
+.left{ position: relative; margin: 20px 20px 0px 0px;  }  
+.left a{ font-size:24px; font-weight:bold; color:#F90; text-height:auto; text-align:center; } 
+b{
+	font-size: 11px;
+	font-weight: 100;
+	text-align: center;
+}
